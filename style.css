@@ -40,18 +40,18 @@ img {
     margin-right: 30;
 }
 .card {
-    position: relative; /* Needed for absolute children */
+    position: relative; 
     background-color: rgb(65, 63, 63);
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 32px 20px;      /* More vertical padding */
+    padding: 32px 20px;     
     margin: 0;
     display: block;
     width: 600px;
-    min-height: 260px;       /* Increased minimum height */
+    min-height: 260px;       
     text-align: center;
     color: white;
-    overflow: hidden; /* Prevent overflow from absolute desc */
+    overflow: hidden; 
 }
 .card img {
     width: 80px;
@@ -102,7 +102,7 @@ img {
 .ability-desc {
     position: absolute;
     left: 50%;
-    top: 60%; /* Adjust as needed */
+    top: 60%; 
     transform: translate(-50%, 0);
     width: 90%;
     background: #222;
