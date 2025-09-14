@@ -1,0 +1,115 @@
+body {
+    background-color: black;
+    color: hsl(208, 100%, 97%);
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 3%;
+    
+    margin: 0 auto;
+}
+div {
+    
+    color:aliceblue;
+    text-align: center;
+
+}
+h1 {
+    background-color: blueviolet;
+    text-align: center;
+    color: black;
+    font-size: 700%;
+    margin-bottom: 3%;
+    border-radius: 40px;
+    
+
+}
+p {
+    width: 80%;
+    margin: 0 auto;
+
+}
+h2 {
+    width: 85%;
+    margin: 0 auto;
+
+}
+img {
+    
+    margin-left: 30;
+    margin-right: 30;
+}
+.card {
+    background-color: rgb(65, 63, 63);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 0;
+    display: block;
+    width: 600px;
+    text-align: center;
+    color: white;
+}
+.card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: #181726;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ptak img {
+    float: right;
+}
+.card-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+}
+.sticky-card {
+    position: sticky;
+    top: 20px;
+    z-index: 2;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sticky-card:active,
+.sticky-card:focus,
+.sticky-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    z-index: 2;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-expand {
+    transform: scale(1.15);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    z-index: 10;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.ability-desc {
+    display: none;
+    background: #222;
+    color: aliceblue;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 24px auto;
+    width: 80%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background 0.5s, box-shadow 0.5s;
+    font-size: 130%;
+}
+.highlighted {
+    background: linear-gradient(90deg, #fff700 60%, #ffe066 100%);
+    color: #222;
+    box-shadow: 0 0 24px 8px #fff700;
+    border: 2px solid #ffe066;
+}

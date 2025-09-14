@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian z Elden Ring Nightreign</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1><strong>G &nbsp;U &nbsp;A &nbsp;R &nbsp;D &nbsp;I &nbsp;A &nbsp;N</strong></h1>
+
+    <p>
+        <h3>Guardian</h3>je postava z rozšíření Elden Ring: Nightreign. Vyniká odolností a schopností chránit své spojence. Jeho hlavní síla spočívá v obraně a práci se štítem. Hodí se pro hráče, kteří preferují defenzivní styl a chtějí stát v první linii boje.
+    </p>
+
+    <p>
+        <h3>Původ a lore</h3>
+        Guardian pochází z řádu Nightfarerů, pověřených ochranou posvátných míst v zemích Nightreignu. Díky neochvějné víře dokázali přežít i ty nejtemnější časy. Podle legend byl první Guardian vybrán samotnou bohyní Noctis, aby chránil světlo před temnotou.
+    </p>
+
+    <h3>Zbraně</h3>
+    <ul>
+        <li>Greatsword (Velký meč)</li>
+        <li>Štít</li>
+    </ul>
+
+    <div class="ptak">
+        <img src="ptak.png" alt="Guardian Logo">
+    </div>
+
+    <h3>Schopnosti</h3>
+    <div class="card-column">
+        <div class="card" data-desc="steelguard-desc">
+            <h4>Steel Guard</h4>
+            <img src="steelguard.png" alt="Steel Guard">
+        </div>
+        <div class="card" data-desc="whirlwind-desc">
+            <h4>Whirlwind</h4>
+            <img src="whirlwind.png" alt="Whirlwind">
+        </div>
+        <div class="card" data-desc="wingsofsalvation-desc">
+            <h4>Wings of Salvation</h4>
+            <img src="wingsofsalvation.png" alt="Wings of Salvation">
+        </div>
+    </div>
+
+    <div id="steelguard-desc" class="ability-desc">
+        <h3>Steel Guard</h3>
+        <img src="steelguard.png" alt="steelguard">
+        Zaujme pevný obranný postoj, který na pět sekund výrazně snižuje příchozí poškození. Po tuto dobu na sebe přitahuje pozornost nepřátel.
+    </div>
+    <div id="whirlwind-desc" class="ability-desc">
+        <h3>Whirlwind</h3>
+        <img src="Whirlwind.png" alt="Whirlwind">
+        Svůj meč do víru a vyšle cyklón směrem k nepřátelům.
+    </div>
+    <div id="wingsofsalvation-desc" class="ability-desc">
+        <h3>Wings of Salvation</h3>
+        <img src="wingsofsalvation.png" alt="wingsofsalvation">
+        Vyskočí do vzduchu a po dopadu vytvoří kolem sebe ochranný štít, který na krátký čas blokuje všechny útoky.
+    </div>
+
+    <h3>Statistiky</h3>
+    <table>
+        <tr>
+            <th>Statistika</th>
+            <th>Hodnota</th>
+        </tr>
+        <tr>
+            <td>Životy (HP)</td>
+            <td>1800</td>
+        </tr>
+        <tr>
+            <td>Výdrž (Stamina)</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <td>Fyzická obrana</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>Magická obrana</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>Poškození zbraně</td>
+            <td>80–120</td>
+        </tr>
+    </table>
+
+    <p>
+        <h3>Styl hry</h3>
+        Guardian je tank, který se specializuje na ochranu týmu. Dokáže pohlcovat velké množství poškození a udržet nepřátele v bezpečné vzdálenosti. Vyplatí se ho hrát s důrazem na spolupráci a chytré využívání obranných schopností.
+    </p>
+
+    <h3>Tipy pro hraní</h3>
+    <ul>
+        <li>Pečlivě sledujte výdrž – dlouhé blokování ji rychle vyčerpá.</li>
+        <li>Používejte schopnost Taunt, když jsou spojenci v ohrožení.</li>
+        <li>Kombinujte Shield Bash s útoky spoluhráčů pro co největší účinek.</li>
+        <li>Před těžkými boji s bossy aktivujte Fortify.</li>
+    </ul>
+
+    <h3>Zajímavosti</h3>
+    <ul>
+        <li>Guardian čerpá inspiraci z klasických rytířů a paladinů.</li>
+        <li>Jeho brnění patří k nejodolnějším v celé hře.</li>
+        <li>Vitek je známý hráč, který Guardiana dokonale ovládá.</li>
+        <li>Může používat speciální štíty poskytující jedinečné bonusy.</li>
+    </ul>
+
+    <h3>FAQ</h3>
+    <ul>
+        <li><strong>Je Guardian vhodný pro začátečníky?</strong> Ano, díky vysoké odolnosti je ideální pro nováčky.</li>
+        <li><strong>Může Guardian používat magii?</strong> Jen omezeně – hlavně obranná kouzla.</li>
+        <li><strong>Jak Guardian získává nové schopnosti?</strong> Postupem na vyšší úrovně a plněním speciálních úkolů.</li>
+    </ul>
+    <script>
+    document.querySelectorAll('.card').forEach(card => {
+    const descId = card.getAttribute('data-desc');
+    const desc = document.getElementById(descId);
+
+    card.addEventListener('mouseenter', () => {
+        if (!desc.classList.contains('permanent')) {
+            desc.style.display = 'block';
+        }
+    });
+
+    card.addEventListener('mouseleave', () => {
+        if (!desc.classList.contains('permanent')) {
+            desc.style.display = 'none';
+        }
+    });
+
+    card.addEventListener('click', () => {
+        // Hide all permanent descriptions
+        document.querySelectorAll('.ability-desc.permanent').forEach(d => {
+            d.classList.remove('permanent');
+            d.style.display = 'none';
+        });
+        // Show and set this one as permanent
+        desc.style.display = 'block';
+        desc.classList.add('permanent');
+    });
+});
+</script>
+</body>
+</html>
