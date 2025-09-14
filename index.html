@@ -34,31 +34,24 @@
         <div class="card" data-desc="steelguard-desc">
             <h4>Steel Guard</h4>
             <img src="imgs/steelguard.png" alt="Steel Guard">
+            <div id="steelguard-desc" class="ability-desc">
+            Zaujme pevný obranný postoj, který na pět sekund výrazně snižuje příchozí poškození. Po tuto dobu na sebe přitahuje pozornost nepřátel.
+            </div>
         </div>
         <div class="card" data-desc="whirlwind-desc">
             <h4>Whirlwind</h4>
             <img src="imgs/whirlwind.png" alt="Whirlwind">
+            <div id="whirlwind-desc" class="ability-desc">
+            Spawne cyklónu, která se pohybuje vpřed a způsobuje poškození všem nepřátelům v cestě.
+        </div>
         </div>
         <div class="card" data-desc="wingsofsalvation-desc">
             <h4>Wings of Salvation</h4>
             <img src="imgs/wingsofsalvation.png" alt="Wings of Salvation">
+            <div id="wingsofsalvation-desc" class="ability-desc">
+            Vyskočí do vzduchu a po dopadu vytvoří kolem sebe ochranný štít, který na krátký čas blokuje všechny útoky a všechy spoluhráče oživí.
         </div>
-    </div>
-
-    <div id="steelguard-desc" class="ability-desc">
-        <h3>Steel Guard</h3>
-        <img src="imgs/steelguard.png" alt="steelguard">
-        Zaujme pevný obranný postoj, který na pět sekund výrazně snižuje příchozí poškození. Po tuto dobu na sebe přitahuje pozornost nepřátel.
-    </div>
-    <div id="imgs/whirlwind-desc" class="ability-desc">
-        <h3>Whirlwind</h3>
-        <img src="imgs/Whirlwind.png" alt="Whirlwind">
-        Svůj meč do víru a vyšle cyklón směrem k nepřátelům.
-    </div>
-    <div id="wingsofsalvation-desc" class="ability-desc">
-        <h3>Wings of Salvation</h3>
-        <img src="imgs/wingsofsalvation.png" alt="wingsofsalvation">
-        Vyskočí do vzduchu a po dopadu vytvoří kolem sebe ochranný štít, který na krátký čas blokuje všechny útoky.
+        </div>
     </div>
 
     <h3>Statistiky</h3>
@@ -116,6 +109,11 @@
         <li><strong>Může Guardian používat magii?</strong> Jen omezeně – hlavně obranná kouzla.</li>
         <li><strong>Jak Guardian získává nové schopnosti?</strong> Postupem na vyšší úrovně a plněním speciálních úkolů.</li>
     </ul>
+    <footer>
+        <br>
+        <p>Zdroj: <div class="odkaz"><a href="https://eldenringnightreign.wiki.fextralife.com/Guardian" target="_blank">https://eldenringnightreign.wiki.fextralife.com/Guardian</div></a></p>
+        <br>
+    </footer>
     <script>
     document.querySelectorAll('.card').forEach(card => {
     const descId = card.getAttribute('data-desc');
@@ -134,12 +132,13 @@
     });
 
     card.addEventListener('click', () => {
-        // Hide all permanent descriptions
+        
         document.querySelectorAll('.ability-desc.permanent').forEach(d => {
             d.classList.remove('permanent');
+            //bobek
             d.style.display = 'none';
         });
-        // Show and set this one as permanent
+        
         desc.style.display = 'block';
         desc.classList.add('permanent');
     });

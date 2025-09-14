@@ -40,15 +40,18 @@ img {
     margin-right: 30;
 }
 .card {
+    position: relative; /* Needed for absolute children */
     background-color: rgb(65, 63, 63);
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 32px 20px;      /* More vertical padding */
     margin: 0;
     display: block;
     width: 600px;
+    min-height: 260px;       /* Increased minimum height */
     text-align: center;
     color: white;
+    overflow: hidden; /* Prevent overflow from absolute desc */
 }
 .card img {
     width: 80px;
@@ -65,9 +68,11 @@ img {
 }
 .card-column {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 20px; 
+    margin-bottom: 5px;
+
 }
 .sticky-card {
     position: sticky;
@@ -95,21 +100,37 @@ img {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .ability-desc {
-    display: none;
+    position: absolute;
+    left: 50%;
+    top: 60%; /* Adjust as needed */
+    transform: translate(-50%, 0);
+    width: 90%;
     background: #222;
     color: aliceblue;
     border-radius: 12px;
-    padding: 18px;
-    margin: 24px auto;
-    width: 80%;
+    padding: 18px 10px;
     box-sizing: border-box;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    transition: background 0.5s, box-shadow 0.5s;
-    font-size: 130%;
+    font-size: 110%;
+    display: none;
+    z-index: 2;
+    transition: opacity 0.3s;
 }
 .highlighted {
     background: linear-gradient(90deg, #fff700 60%, #ffe066 100%);
     color: #222;
     box-shadow: 0 0 24px 8px #fff700;
     border: 2px solid #ffe066;
+}
+footer {
+    margin-top: 40px;
+    font-size: 120%;
+    color: #ccc;
+    text-align: center;
+    background: #222;
+}
+.odkaz a {
+    color:lightpink;
+    
+
 }
