@@ -41,7 +41,7 @@ img {
 }
 .card {
     position: relative; 
-    background-color: rgb(65, 63, 63);
+    background-color: blueviolet;
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 32px 20px;     
