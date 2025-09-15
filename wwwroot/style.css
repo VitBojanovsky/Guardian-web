@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: rgb(29, 28, 28);
     color: hsl(208, 100%, 97%);
     width: 80%;
     padding-left: 10%;
@@ -15,7 +15,7 @@ div {
 
 }
 h1 {
-    background-color: blueviolet;
+    background-color: rgb(82, 82, 236);
     text-align: center;
     color: black;
     font-size: 700%;
@@ -41,7 +41,7 @@ img {
 }
 .card {
     position: relative; 
-    background-color: blueviolet;
+    background-color: rgb(82, 82, 236);
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 32px 20px;     
@@ -130,7 +130,11 @@ footer {
     background: #222;
 }
 .odkaz a {
-    color:lightpink;
+    color:rgb(82, 82, 236);
     
 
+}
+h4 {
+    font-size: 130%;
+    font-family: fantasy;
 }

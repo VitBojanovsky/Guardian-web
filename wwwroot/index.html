@@ -104,17 +104,81 @@
     </ul>
 
     <h3>FAQ</h3>
-    <ul>
-        <li><strong>Je Guardian vhodný pro začátečníky?</strong> Ano, díky vysoké odolnosti je ideální pro nováčky.</li>
-        <li><strong>Může Guardian používat magii?</strong> Jen omezeně – hlavně obranná kouzla.</li>
-        <li><strong>Jak Guardian získává nové schopnosti?</strong> Postupem na vyšší úrovně a plněním speciálních úkolů.</li>
-    </ul>
+<div id="faq-container"></div>
+
+<h4>Přidat otázku:</h4>
+<form id="faq-form">
+    <input type="text" id="question" placeholder="Vaše otázka" required>
+    <input type="text" id="answer" placeholder="Odpověď (volitelné)">
+    <button type="submit">Odeslat</button>
+</form>
+
     <footer>
         <br>
         <p>Zdroj: <div class="odkaz"><a href="https://eldenringnightreign.wiki.fextralife.com/Guardian" target="_blank">https://eldenringnightreign.wiki.fextralife.com/Guardian</div></a></p>
         <br>
     </footer>
     <script>
+// Načtení FAQ z API
+async function loadFaqs() {
+    const container = document.getElementById('faq-container');
+    container.innerHTML = '';
+
+    try {
+        const res = await fetch('/faq');
+        const faqs = await res.json();
+
+        if (faqs.length === 0) {
+            container.innerHTML = '<p>Žádné otázky zatím nebyly přidány.</p>';
+        } else {
+            const list = document.createElement('ul');
+            faqs.forEach(faq => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${faq.question}</strong> ${faq.answer ?? ''}`;
+                list.appendChild(li);
+            });
+            container.appendChild(list);
+        }
+    } catch (err) {
+        container.innerHTML = '<p>Chyba při načítání FAQ.</p>';
+        console.error(err);
+    }
+}
+
+// Submit new FAQ
+document.getElementById('faq-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const question = document.getElementById('question').value.trim();
+    const answer = document.getElementById('answer').value.trim();
+
+    if (!question) return alert('Zadejte otázku.');
+
+    try {
+        const formData = new FormData();
+        formData.append('question', question);
+        formData.append('answer', answer);
+
+        const res = await fetch('/faq', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (res.ok) {
+            document.getElementById('question').value = '';
+            document.getElementById('answer').value = '';
+            loadFaqs(); // Refresh the list
+        } else {
+            alert('Chyba při odesílání otázky.');
+        }
+    } catch (err) {
+        alert('Chyba při odesílání otázky.');
+        console.error(err);
+    }
+});
+
+// Load FAQs on page load
+loadFaqs();
     document.querySelectorAll('.card').forEach(card => {
     const descId = card.getAttribute('data-desc');
     const desc = document.getElementById(descId);
