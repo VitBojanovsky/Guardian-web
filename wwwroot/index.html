@@ -119,7 +119,7 @@
         <br>
     </footer>
     <script>
-// Načtení FAQ z API
+
 async function loadFaqs() {
     const container = document.getElementById('faq-container');
     container.innerHTML = '';
@@ -167,7 +167,7 @@ document.getElementById('faq-form').addEventListener('submit', async (e) => {
         if (res.ok) {
             document.getElementById('question').value = '';
             document.getElementById('answer').value = '';
-            loadFaqs(); // Refresh the list
+            loadFaqs(); 
         } else {
             alert('Chyba při odesílání otázky.');
         }
@@ -177,7 +177,6 @@ document.getElementById('faq-form').addEventListener('submit', async (e) => {
     }
 });
 
-// Load FAQs on page load
 loadFaqs();
     document.querySelectorAll('.card').forEach(card => {
     const descId = card.getAttribute('data-desc');

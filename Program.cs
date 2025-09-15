@@ -2,27 +2,24 @@ using MySql.Data.MySqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add OpenAPI for development/testing
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Serve static files (index.html, CSS, JS, etc.)
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-// Enable OpenAPI in development
 if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 
 app.UseHttpsRedirection();
 
-// Read connection string from appsettings.json
+
 var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// ----------------------
-// GET: List all FAQs
-// ----------------------
+
 app.MapGet("/faq", async () =>
 {
     var faqs = new List<object>();
@@ -54,9 +51,7 @@ app.MapGet("/faq", async () =>
     return Results.Json(faqs);
 });
 
-// ----------------------
-// GET: Single FAQ by ID
-// ----------------------
+
 app.MapGet("/faq/{id:int}", async (int id) =>
 {
     try
@@ -90,9 +85,7 @@ app.MapGet("/faq/{id:int}", async (int id) =>
     }
 });
 
-// ----------------------
-// POST: Add new FAQ
-// ----------------------
+
 app.MapPost("/faq", async (HttpRequest req) =>
 {
     var form = await req.ReadFormAsync();
@@ -122,9 +115,7 @@ app.MapPost("/faq", async (HttpRequest req) =>
     return Results.Ok(new { question, answer });
 });
 
-// ----------------------
-// PUT: Update existing FAQ
-// ----------------------
+
 app.MapPut("/faq/{id:int}", async (int id, HttpRequest req) =>
 {
     var form = await req.ReadFormAsync();
@@ -154,9 +145,7 @@ app.MapPut("/faq/{id:int}", async (int id, HttpRequest req) =>
     }
 });
 
-// ----------------------
-// DELETE: Remove FAQ
-// ----------------------
+
 app.MapDelete("/faq/{id:int}", async (int id) =>
 {
     try
@@ -176,27 +165,7 @@ app.MapDelete("/faq/{id:int}", async (int id) =>
     }
 });
 
-// ----------------------
-// Optional: WeatherForecast example
-// ----------------------
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
 
 app.Run();
 
